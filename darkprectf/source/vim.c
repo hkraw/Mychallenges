@@ -103,11 +103,11 @@ void allocate()
 	printf("Enter the size of the chunk: ");
 	size = readnumber();
 	/*0x178 <=0x78*/
-	if((char)size > 0x78) {
+	if(size<0xe8||size>0x2000) {
 		printf("No\n");
 		return ;
 	}
-	chunks[i] = (char *)malloc((char)size);
+	chunks[i] = (char *)calloc((char)size,1);
 	printf("Enter note: ");
 	my_read(chunks[i],size);
 }
@@ -147,10 +147,6 @@ int main()
 			break;
 		case 5:
 			exit(0);
-			break;
-		case 0x1337:
-			printf("Sign your name into the record book: ");
-			read(0,buff,0x10);
 			break;
 		default:
 			printf(":(\n");
